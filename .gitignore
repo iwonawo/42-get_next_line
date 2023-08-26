@@ -1,0 +1,19 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+*.swp
+.DS_Store
+
+#unit tests
+gnlTester/
