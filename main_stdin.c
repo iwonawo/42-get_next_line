@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_stdin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwozniak <iwozniak@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: iwozniak <iwozniak@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:27:01 by iwozniak          #+#    #+#             */
-/*   Updated: 2023/08/26 18:13:18 by iwozniak         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:10:38 by iwozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,9 @@
 int	main(void)
 {
 	char	*line;
-	int		fd;
 
-	fd = fileno(stdin);
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("line: %s\n", line);
-		free(line);
-	}
-	close(fd);
+	line = get_next_line(0);
+	printf("line: %s\n", line);
+	free(line);
 	return (0);
 }

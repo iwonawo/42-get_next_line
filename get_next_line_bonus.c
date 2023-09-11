@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwozniak <iwozniak@student.42abudhabi.ae>  +#+  +:+       +#+        */
+/*   By: iwozniak <iwozniak@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 20:52:48 by iwozniak          #+#    #+#             */
-/*   Updated: 2023/08/26 18:18:10 by iwozniak         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:11:37 by iwozniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,16 @@ char	*ft_move_pointer(char *str)
 	i = 0;
 	j = 0;
 	if (str[i] == '\0')
-	{
-		free(str);
-		return (NULL);
-	}
+		return (free(str), NULL);
 	i = ft_end_of_line(str, i);
 	new_str = (char *)malloc((ft_strlen(str) - i) + 1);
 	if (!new_str)
-		return (NULL);
+		return (free(new_str), NULL);
 	while (str[i])
 		new_str[j++] = str[i++];
 	new_str[j] = '\0';
+	if (!new_str[0])
+		return (free(str), free(new_str), NULL);
 	free(str);
 	return (new_str);
 }
